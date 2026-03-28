@@ -1,0 +1,214 @@
+/* Header Component Styles */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Top Bar ── */
+.topBar {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 8px var(--spacing-md);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.topBarText {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* ── Main Nav ── */
+.mainNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-xl);
+  height: var(--header-height);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-primary);
+  font-size: 22px;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* Nav Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.navLink {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+/* Nav Actions */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  color: var(--color-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.actionBtn:hover {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-accent);
+}
+
+.cartWrapper {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+/* Language selector */
+.langSelector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.langSelector:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+/* ── Bottom Nav ── */
+.subNav {
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  padding: 0 var(--spacing-xl);
+  height: 44px;
+  overflow-x: auto;
+}
+
+.subNavLink {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.subNavLink:hover {
+  color: var(--color-primary);
+}
+
+.subNavLink.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.hamburgerLine {
+  display: block;
+  height: 1.5px;
+  background-color: var(--color-primary);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* ─────────────────────────
+   Responsive
+───────────────────────── */
+@media (max-width: 1024px) {
+  .navLinks {
+    display: none;
+  }
+
+  .subNav {
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .mainNav {
+    padding: 0 var(--spacing-md);
+  }
+
+  .subNav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+}

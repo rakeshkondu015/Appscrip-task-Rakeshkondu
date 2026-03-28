@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://appscrip-task.netlify.app/sitemap.xml

@@ -1,0 +1,242 @@
+/* FilterSidebar Component Styles */
+
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+}
+
+/* Filter Group */
+.filterGroup {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filterGroupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filterGroupTitle {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.chevron {
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.filterGroupBody {
+  padding-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Checkbox Filter */
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.filterOption:hover .filterLabel {
+  color: var(--color-primary);
+}
+
+.filterCheckbox {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--color-border-dark);
+  border-radius: 3px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.filterCheckbox.checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.filterLabel {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  line-height: 1.4;
+}
+
+.filterCount {
+  font-size: 11px;
+  color: var(--color-text-light);
+  margin-left: auto;
+}
+
+/* Price Range */
+.priceRange {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.priceInputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.priceInput {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--color-primary);
+  outline: none;
+  min-width: 0;
+  transition: border-color var(--transition-fast);
+}
+
+.priceInput:focus {
+  border-color: var(--color-primary);
+}
+
+.priceSeparator {
+  font-size: 13px;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.applyBtn {
+  align-self: flex-start;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.applyBtn:hover {
+  background-color: var(--color-accent);
+}
+
+/* Rating Filter */
+.ratingOption {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 1px;
+  color: var(--color-accent);
+  font-size: 13px;
+}
+
+.ratingLabel {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* Clear all filters */
+.clearBtn {
+  width: 100%;
+  padding: var(--spacing-sm) 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  margin-top: var(--spacing-md);
+}
+
+.clearBtn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Mobile drawer */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 200;
+}
+
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(320px, 90vw);
+  height: 100vh;
+  background-color: var(--color-white);
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  z-index: 201;
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+}
+
+.mobileDrawer.open {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.drawerTitle {
+  font-size: 16px;
+  font-family: var(--font-primary);
+}
+
+.closeBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+}
