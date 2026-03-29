@@ -1,7 +1,7 @@
 // lib/api.js
 // Fetches product data from FakeStore API
 
-const API_BASE = 'https://fakestoreapi.com';
+const API_BASE = 'https://dummyjson.com';
 
 /**
  * Fetch all products
@@ -11,7 +11,7 @@ const API_BASE = 'https://fakestoreapi.com';
 export async function fetchProducts(category = '') {
   const url = category
     ? `${API_BASE}/products/category/${encodeURIComponent(category)}`
-    : `${API_BASE}/products`;
+    : `${API_BASE}/products?limit=20`;
 
   const res = await fetch(url, {
     next: { revalidate: 3600 }, // ISR: revalidate every hour
@@ -21,7 +21,19 @@ export async function fetchProducts(category = '') {
     throw new Error(`Failed to fetch products: ${res.status}`);
   }
 
-  return res.json();
+  const data = await res.json();
+  return data.products.map(p => ({
+    id: p.id,
+    title: p.title,
+    price: p.price,
+    category: p.category,
+    description: p.description,
+    image: p.thumbnail,
+    rating: {
+      rate: p.rating,
+      count: p.stock
+    }
+  }));
 }
 
 /**
@@ -37,7 +49,8 @@ export async function fetchCategories() {
     throw new Error(`Failed to fetch categories: ${res.status}`);
   }
 
-  return res.json();
+  const data = await res.json();
+  return data.map(c => c.slug);
 }
 
 /**

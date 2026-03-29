@@ -27,8 +27,8 @@ export default function PLPClient({ initialProducts, categories, initialCategory
     setFetchError(null);
 
     const url = activeCategory
-      ? `https://fakestoreapi.com/products/category/${encodeURIComponent(activeCategory)}`
-      : 'https://fakestoreapi.com/products';
+      ? `https://dummyjson.com/products/category/${encodeURIComponent(activeCategory)}`
+      : 'https://dummyjson.com/products?limit=20';
 
     fetch(url)
       .then((res) => {
@@ -36,7 +36,16 @@ export default function PLPClient({ initialProducts, categories, initialCategory
         return res.json();
       })
       .then((data) => {
-        startTransition(() => setProducts(data));
+        const mappedProducts = data.products.map(p => ({
+          id: p.id,
+          title: p.title,
+          price: p.price,
+          category: p.category,
+          description: p.description,
+          image: p.thumbnail,
+          rating: { rate: p.rating, count: p.stock }
+        }));
+        startTransition(() => setProducts(mappedProducts));
       })
       .catch(() => {
         setFetchError('Failed to load products. Please try again.');
