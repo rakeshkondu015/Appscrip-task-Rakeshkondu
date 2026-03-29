@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import styles from './ProductCard.module.css';
 
 /**
@@ -61,11 +60,9 @@ export default function ProductCard({ product }) {
     <article className={styles.card} aria-label={title}>
       {/* Image area */}
       <div className={styles.imageWrapper}>
-        <Image
+        <img
           src={image}
           alt={seoImageAlt}
-          fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className={styles.cardImage}
           loading="lazy"
         />
