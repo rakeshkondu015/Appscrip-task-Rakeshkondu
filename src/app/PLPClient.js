@@ -107,7 +107,7 @@ export default function PLPClient({ initialProducts, categories, initialCategory
           </p>
           <p className={styles.aboutText}>
             We believe in fair trade, sustainable practices, and empowering local communities. When
-            you shop with us, you're not just buying a product — you're supporting livelihoods and
+            you shop with us, you&apos;re not just buying a product — you&apos;re supporting livelihoods and
             keeping ancient crafts alive.
           </p>
         </div>
