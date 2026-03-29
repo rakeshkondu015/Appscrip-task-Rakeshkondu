@@ -25,6 +25,7 @@ export default async function ProductListingPage({ searchParams }) {
       fetchCategories(),
     ]);
   } catch (err) {
+    console.error("API Fetch Error:", err);
     error = 'Failed to load products. Please try again later.';
   }
 
