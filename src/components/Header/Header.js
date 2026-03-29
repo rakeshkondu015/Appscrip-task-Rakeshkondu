@@ -30,7 +30,7 @@ export default function Header() {
 
         {/* Logo */}
         <Link href="/" className={styles.logo} aria-label="MUSER – Home">
-          LOGO
+          MUSER
         </Link>
 
         {/* Desktop nav links */}

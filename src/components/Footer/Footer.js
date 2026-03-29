@@ -14,7 +14,7 @@ export default function Footer() {
       <div className={styles.footerTop}>
         {/* Brand column */}
         <div className={styles.footerBrand}>
-          <span className={styles.footerLogo} aria-label="MUSER">LOGO</span>
+          <span className={styles.footerLogo} aria-label="MUSER">MUSER</span>
           <p className={styles.footerTagline}>
             Be with us, shop with us, be happy. Find exclusive handcrafted products from artisans around the world.
           </p>
